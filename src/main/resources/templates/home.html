@@ -8,31 +8,32 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
           integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
-    <title>Hello, world!</title>
+    <title>Главная</title>
     <link rel="stylesheet" href="../css/govnostyles.css">
 </head>
 <body>
-
-<div class="container-fluid m-4">
-    <div class="d-flex flex-row">
-        <div class="navbar-brand col-3 align-content-center col">
-            <img src="../images/logo.png" width="60" height="60" class="d-inline-block align-content-center" alt="">
-            FTracker
-        </div>
-        <nav class="navbar navbar-expand navbar-dark bg-dark col rounded-left">
-            <div class="collapse navbar-collapse">
-                <div class="navbar-nav">
-                    <a href="#" class="nav-item nav-link active">Главная<span class="sr-only">(current)</span></a>
-                    <a class="nav-item nav-link" href="#">Профиль</a>
-                    <a class="nav-item nav-link" href="#">Отчет</a>
-                    <a class="nav-item nav-link" href="#">Советы</a>
-                    <a class="nav-item nav-link" href="#">Графики</a>
-                </div>
+<header>
+    <div class="container-fluid m-4">
+        <div class="d-flex flex-row">
+            <div class="navbar-brand col-3 align-content-center col">
+                <img src="../images/logo.png" width="60" height="60" class="d-inline-block align-content-center" alt="">
+                FTracker
             </div>
-        </nav>
+            <nav class="navbar navbar-expand navbar-dark bg-dark col rounded-left">
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link active" href="home.html">Главная</a>
+                        <a class="nav-item nav-link" href="profile.html">Профиль</a>
+                        <a class="nav-item nav-link" href="#">Отчет</a>
+                        <a class="nav-item nav-link" href="#">Советы</a>
+                        <a class="nav-item nav-link" href="#">Графики</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
     </div>
-</div>
-<div class="jumbotron">
+</header>
+<main>
     <div class="d-flex flex-row justify-content-around">
         <div class="col-7">
             <h1 class="display-4">Моя тренировка</h1>
@@ -64,7 +65,8 @@
                         <ul>
                             <li class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="check3">
-                                <label for="check3" class="custom-control-label">Разведение гантелей на скамье</label>
+                                <label for="check3" class="custom-control-label">Разведение гантелей на
+                                    скамье</label>
                             </li>
                             <li class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="check4">
@@ -82,7 +84,8 @@
                         <ul>
                             <li class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="check5">
-                                <label for="check5" class="custom-control-label">Разведение гантелей на скамье</label>
+                                <label for="check5" class="custom-control-label">Разведение гантелей на
+                                    скамье</label>
                             </li>
                             <li class="custom-control custom-checkbox">
                                 <input type="checkbox" class="custom-control-input" id="check6">
@@ -94,7 +97,8 @@
 
                 <form action="">
                     <div class="input-group col-6 mb-3">
-                        <input type="text" class="form-control" aria-label="Text input with segmented dropdown button"
+                        <input type="text" class="form-control"
+                               aria-label="Text input with segmented dropdown button"
                                placeholder="День" name="newDay">
                         <div class="input-group-append">
                             <button type="submit" class="btn btn-outline-secondary">Добавить</button>
@@ -123,7 +127,8 @@
             <h5 class="font-italic">Бог есть и он Богдан</h5>
         </div>
     </div>
-</div>
+
+</main>
 
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
         integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
