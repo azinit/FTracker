@@ -17,7 +17,7 @@
 </head>
 <body>
     <#include 'header.ftl'>
-    <main class="container mt-5">
+    <main>
         <#nested>
     </main>
     <#include 'footer.ftl'>

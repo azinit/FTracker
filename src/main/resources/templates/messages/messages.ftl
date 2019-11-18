@@ -2,9 +2,11 @@
 <#import 'includes/message.ftl' as component_message>
 
 <@wrapper.page>
-    <h1>Page: Messages</h1>
+    <section class="jumbotron">
+        <h1>Page: Messages</h1>
+    </section>
 
-    <div class="messages">
+    <div class="container messages">
         <h2>Message list:</h2>
         <div class="message-list card-columns">
             <#list messages as message>
