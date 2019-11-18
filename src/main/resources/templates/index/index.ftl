@@ -1,4 +1,4 @@
-<#import 'parts/wrapper.ftl' as wrapper>
+<#import '../includes/wrapper.ftl' as wrapper>
 
 <@wrapper.page>
     <h1>Application: '${name}'</h1>

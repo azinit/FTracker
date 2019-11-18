@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("index")
-public class IndexController {
+@RequestMapping("advices")
+public class AdvicesController {
     @GetMapping
-    public String index(Model model) {
-        model.addAttribute("name", "FTracker");
-        return "index/index";
+    public String main(Model model) {
+        model.addAttribute("name", "{__advices-page__}");
+        return "advices/advices";
     }
 }
