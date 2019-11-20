@@ -14,6 +14,7 @@
                     <a href="/advices" class="nav-item nav-link">Advices</a>
                     <a href="/diary" class="nav-item nav-link">Diary</a>
                     <a href="/messages" class="nav-item nav-link">Messages</a>
+                    <a href="/login" class="nav-item nav-link">Login</a>
                     <#--                    <a class="nav-item nav-link" href="home.html">Главная</a>-->
                     <#--                    <a class="nav-item nav-link" href="profile.html">Профиль</a>-->
                     <#--                    <a class="nav-item nav-link" href="#">Отчет</a>-->

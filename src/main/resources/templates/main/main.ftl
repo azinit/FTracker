@@ -6,6 +6,11 @@
         <p>Attr: ${name}</p>
     </section>
 
+    <form action="/logout" method="post">
+        <input type="hidden" name="_csrf" value="${ _csrf.token }">
+        <input type="submit" value="Sign Out"/>
+    </form>
+
     <div class="container-fluid p-md-5">
         <div class="d-flex flex-row justify-content-around">
             <div class="col-7">
