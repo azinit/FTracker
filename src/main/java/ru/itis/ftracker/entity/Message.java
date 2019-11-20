@@ -10,12 +10,22 @@ public class Message {
     private String text;
     private String tag;
 
+    // настраиваем mapping для user
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User author;
+
     public Message() {
     }
 
     public Message(String text, String tag) {
         this.text = text;
         this.tag = tag;
+    }
+
+    public String getAuthorName() {
+        boolean isDefinedAuthor = author != null && !author.getLogin().isEmpty();
+        return isDefinedAuthor ? author.getLogin() : "<< Anonym >>";
     }
 
     public Long getId() {
