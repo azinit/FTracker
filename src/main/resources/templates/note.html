@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <title>Заметка</title>
+    <link rel="stylesheet" href="../css/govnostyles.css">
+</head>
+<body>
+<header>
+    <div class="container-fluid m-4">
+        <div class="d-flex flex-row">
+            <div class="navbar-brand col-3 align-content-center col">
+                <img src="../images/logo.png" width="60" height="60" class="d-inline-block align-content-center" alt="">
+                FTracker
+            </div>
+            <nav class="navbar navbar-expand navbar-dark bg-dark col rounded-left">
+                <div class="collapse navbar-collapse">
+                    <div class="navbar-nav">
+                        <a class="nav-item nav-link" href="home.html">Главная</a>
+                        <a class="nav-item nav-link" href="profile.html">Профиль</a>
+                        <a class="nav-item nav-link" href="#">Дневник</a>
+                        <a class="nav-item nav-link active" href="#">Заметка</a>
+                        <a class="nav-item nav-link" href="advices.html">Советы</a>
+                    </div>
+                </div>
+            </nav>
+        </div>
+    </div>
+</header>
+<main>
+
+    <form class="container-fluid p-5">
+        <h1 class="font-weight-bold text-center">Создание новой заметки</h1>
+        <div class="flex-row d-flex">
+            <div class="container-fluid col-6">
+                <h3 class="p-3">Сколько съел:</h3>
+                <div class="d-flex">
+                    <h3 class="font-weight-light pr-5">Белки</h3>
+                    <input class="form-control form-control-sm" style="width: 25%">
+                </div>
+                <div class="d-flex">
+                    <h3 class="font-weight-light pr-5">Жиры</h3>
+                    <input class="form-control form-control-sm" style="width: 25%">
+                </div>
+                <div class="d-flex">
+                    <h3 class="font-weight-light pr-5">Углеводы</h3>
+                    <input class="form-control form-control-sm" style="width: 17.5%">
+                </div>
+            </div>
+
+            <div class="container-fluid col-6">
+                <div class="d-flex p-3">
+                    <h3 class="pr-5">Сегодня: </h3>
+                    <h3 class="font-weight-bold">
+                        <script> document.write(new Date().toLocaleDateString());</script>
+                    </h3>
+                </div>
+                <div class="d-flex p-2">
+                    <h3 class="font-weight-light pr-5">Текущий вес</h3>
+                    <input class="form-control form-control-sm" style="width: 17.5%">
+                </div>
+                <div class="d-flex p-2">
+                    <h3 class="font-weight-light">Настроение</h3>
+                    <input type="range" class="custom-range p-3" min="1" max="10" step="1">
+                </div>
+                <div class="d-flex p-2">
+                    <h3 class="font-weight-light pr-5">Фото</h3>
+                    <input type="file" class="form-control-file">
+                </div>
+            </div>
+        </div>
+        <div class="flex-row d-flex p-3">
+            <div class="col-2"></div>
+            <h3 class="font-weight-light pr-3">Комментарий</h3>
+            <input type="text" class="form-control">
+            <div class="col-3"></div>
+        </div>
+        <div class="d-flex justify-content-center p-3">
+            <button type="submit" class="btn btn-lg btn-success">Сохранить заметку</button>
+        </div>
+    </form>
+</main>
+
+
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+</html>
