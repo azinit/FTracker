@@ -1,6 +1,7 @@
 package ru.itis.ftracker.entity;
 
 import javax.persistence.*;
+import java.util.Set;
 
 /**
  * User. Simply - User =)
@@ -16,9 +17,21 @@ public class User {
     private String lastName;
 
     // auth data
-    private String login;
+    private String username;
     private String password;
     private String email;       // optional
+    private boolean active;
+
+    /**
+     * By order:
+     * ElementCollection:  generate table for Role@Enum
+     * CollectionTable:    store role in separate table, will join with current table by "user_id"
+     * Enumerated:         is enum, how store
+     */
+    @ElementCollection(targetClass = Role.class, fetch = FetchType.EAGER)
+    @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name = "user_id"))
+    @Enumerated(EnumType.STRING)
+    private Set<Role> roles;
 
     // TODO:
 //    private NutritionProgram programActive;
@@ -44,12 +57,12 @@ public class User {
         this.lastName = lastName;
     }
 
-    public String getLogin() {
-        return login;
+    public String getUsername() {
+        return username;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getPassword() {
@@ -68,11 +81,27 @@ public class User {
         this.email = email;
     }
 
+    public boolean isActive() {
+        return active;
+    }
+
+    public void setActive(boolean active) {
+        this.active = active;
+    }
+
     public int getProgramDay() {
         return programDay;
     }
 
     public void setProgramDay(int programDay) {
         this.programDay = programDay;
+    }
+
+    public Set<Role> getRoles() {
+        return roles;
+    }
+
+    public void setRoles(Set<Role> roles) {
+        this.roles = roles;
     }
 }

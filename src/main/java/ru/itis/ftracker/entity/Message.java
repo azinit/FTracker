@@ -24,8 +24,8 @@ public class Message {
     }
 
     public String getAuthorName() {
-        boolean isDefinedAuthor = author != null && !author.getLogin().isEmpty();
-        return isDefinedAuthor ? author.getLogin() : "<< Anonym >>";
+        boolean isDefinedAuthor = author != null && !author.getUsername().isEmpty();
+        return isDefinedAuthor ? author.getUsername() : "<< Anonym >>";
     }
 
     public Long getId() {
