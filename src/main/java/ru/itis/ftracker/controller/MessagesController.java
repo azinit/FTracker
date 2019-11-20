@@ -18,20 +18,18 @@ public class MessagesController {
 
     @GetMapping
     public String messages(Model model) {
-        messageRepository.save(new Message("tEXt", "TAG"));
         Iterable<Message> messages = messageRepository.findAll();
         model.addAttribute("messages", messages);
         return "messages/messages";
     }
 
-    @PostMapping
+    @PostMapping("/add")
     public String addMessage(
             @RequestParam String text,
             @RequestParam String tag
     ) {
         Message message = new Message(text, tag);
         messageRepository.save(message);
-
         return "redirect:/messages";
     }
 }

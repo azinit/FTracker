@@ -1,22 +1,15 @@
-/*body {*/
-/*    background-color: #323232;*/
-/*    color: #e8e8e8;*/
-/*}*/
-
-/*header {
-    min-height: 8vh;
-    background-color: #33e4c9;
-}*/
-
 main {
-    min-height: 84vh;
+  min-height: 84vh;
 }
+
 footer {
-    min-height: 8vh;
-    background-color: #323232;
-    color: #fff;
+  min-height: 8vh;
+  background-color: #323232;
+  color: #fff;
 }
 
 section {
-    background-color: #494949;
+  background-color: #494949;
 }
+
+/*# sourceMappingURL=wrapper.css.map */
