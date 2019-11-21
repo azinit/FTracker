@@ -11,8 +11,9 @@ public class Advice {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
 
-    // TODO:
-//    private NutritionProgram program;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "program_id")
+    private NutritionProgram program;
     private String[] tags;
     private String text;
     private String image;
@@ -20,7 +21,8 @@ public class Advice {
     public Advice() {
     }
 
-    public Advice(String[] tags, String text, String image) {
+    public Advice(NutritionProgram program, String[] tags, String text, String image) {
+        this.program = program;
         this.tags = tags;
         this.text = text;
         this.image = image;
@@ -52,5 +54,13 @@ public class Advice {
 
     public void setImage(String image) {
         this.image = image;
+    }
+
+    public NutritionProgram getProgram() {
+        return program;
+    }
+
+    public void setProgram(NutritionProgram program) {
+        this.program = program;
     }
 }

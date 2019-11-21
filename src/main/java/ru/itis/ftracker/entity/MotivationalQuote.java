@@ -12,7 +12,9 @@ public class MotivationalQuote {
     private Long id;
     private String text;
 
-//    private Celebrity author;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "author_id")
+    private Celebrity author;
 
     public MotivationalQuote() {
     }
@@ -31,5 +33,13 @@ public class MotivationalQuote {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public Celebrity getAuthor() {
+        return author;
+    }
+
+    public void setAuthor(Celebrity author) {
+        this.author = author;
     }
 }

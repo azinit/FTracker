@@ -102,4 +102,8 @@ public class UserService implements UserDetailsService {
             sendMessage(user);
         }*/
     }
+
+    public Object getInfo() {
+        return null;
+    }
 }

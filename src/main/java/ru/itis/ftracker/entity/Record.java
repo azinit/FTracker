@@ -20,22 +20,22 @@ public class Record {
     private String comment;     // optional
     private Mood mood;          // optional
 
-    // TODO:
-//    @ManyToOne(fetch = FetchType.EAGER)
-//    @JoinColumn(name = "user_id")
-//    private User user;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
     public Record() {
     }
 
-    public Record(Double weight, int day, Date date, String photo, String comment, Mood mood) {
+    public Record(Double weight, int day, Date date, String photo, String comment, Mood mood, User user) {
         this.weight = weight;
         this.day = day;
         this.date = date;
         this.photo = photo;
         this.comment = comment;
         this.mood = mood;
+        this.user = user;
     }
 
     public Long getId() {
@@ -88,5 +88,13 @@ public class Record {
 
     public void setMood(Mood mood) {
         this.mood = mood;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

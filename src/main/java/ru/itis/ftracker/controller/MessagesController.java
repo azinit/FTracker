@@ -31,7 +31,7 @@ public class MessagesController {
             @RequestParam String text,
             @RequestParam String tag
     ) {
-        Message message = new Message(text, tag);
+        Message message = new Message(text, tag, user);
         messageRepository.save(message);
         return "redirect:/messages";
     }

@@ -1,4 +1,5 @@
-<#import 'includes/wrapper.ftl' as wrapper>
+<#import '../includes/wrapper.ftl' as wrapper>
+<#import '../includes/controls.ftl' as controls>
 
 <@wrapper.page>
     <section class="jumbotron">
@@ -14,10 +15,10 @@
             You have been logged out.
         </#if>
         <form action="/login" method="post">
-            <div><label> User Name : <input type="text" name="username"/> </label></div>
-            <div><label> Password: <input type="password" name="password"/> </label></div>
-            <input type="hidden" name="_csrf" value="${ _csrf.token }">
-            <div><input type="submit" value="Sign In"/></div>
+            <@controls.input label='Username' name='username'/>
+            <@controls.input label='Password' name='password' type="password"/>
+            <@controls.csrf token="${ _csrf.token }"/>
+            <@controls.button label="Sign In"></@controls.button>
         </form>
         <a href="/signup">Create account</a>
     </div>

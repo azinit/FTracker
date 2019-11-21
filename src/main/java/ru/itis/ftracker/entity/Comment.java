@@ -13,16 +13,22 @@ public class Comment {
     private Long id;
     private Date date;
     private String text;
-//    private Advice advice;
-//    private User user;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "advice_id")
+    private Advice advice;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "user_id")
+    private User user;
 
 
     public Comment() {
     }
 
-    public Comment(Date date, String text) {
+    public Comment(Date date, String text, Advice advice, User user) {
         this.date = date;
         this.text = text;
+        this.advice = advice;
+        this.user = user;
     }
 
     public Long getId() {
@@ -43,5 +49,21 @@ public class Comment {
 
     public void setText(String text) {
         this.text = text;
+    }
+
+    public Advice getAdvice() {
+        return advice;
+    }
+
+    public void setAdvice(Advice advice) {
+        this.advice = advice;
+    }
+
+    public User getUser() {
+        return user;
+    }
+
+    public void setUser(User user) {
+        this.user = user;
     }
 }

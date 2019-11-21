@@ -3,7 +3,7 @@
 <@wrapper.page>
     <section class="jumbotron">
         <h1>Page: Profile</h1>
-        <p>Attr: ${name}</p>
+        <p class="text-muted"><b>Email:</b> ${user.email}</p>
     </section>
 
     <div class="container-fluid p-md-5">
@@ -12,8 +12,8 @@
                 <img src="img/ava.jpg" class="rounded img-fluid" width="250" height="250">
             </div>
             <p class="align-self-center col-10 display-4">
-                Имя: Эльдар <br>
-                Фамилия: Сакаев <br>
+                Имя: ${user.firstName} <br>
+                Фамилия: ${user.lastName} <br>
                 Вес: 70 кг <br>
             </p>
         </div>

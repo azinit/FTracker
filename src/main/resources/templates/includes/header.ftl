@@ -3,8 +3,10 @@
 <header class="container-fluid py-4 pl-4 pr-0">
     <div class="d-flex flex-row">
         <div class="navbar-brand col-3 align-content-center col">
-            <img src="img/logo.png" width="60" height="60" class="d-inline-block align-content-center" alt="">
-            FTracker <small class="text-muted">(${name})</small>
+            <a href="/main">
+                <img src="img/logo.png" width="60" height="60" class="d-inline-block align-content-center" alt="">
+            </a>
+            <span>FTracker <small class="text-muted">(${name})</small></span>
         </div>
         <nav class="navbar navbar-expand navbar-dark bg-dark col rounded-left">
             <div class="collapse navbar-collapse">

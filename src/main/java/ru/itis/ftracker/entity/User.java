@@ -37,8 +37,9 @@ public class User implements UserDetails {
     @Enumerated(EnumType.STRING)
     private Set<Role> roles;
 
-    // TODO:
-//    private NutritionProgram programActive;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "program_id")
+    private NutritionProgram programActive;
     private int programDay;
 
     public Long getId() {
@@ -109,6 +110,13 @@ public class User implements UserDetails {
         this.roles = roles;
     }
 
+    public NutritionProgram getProgramActive() {
+        return programActive;
+    }
+
+    public void setProgramActive(NutritionProgram programActive) {
+        this.programActive = programActive;
+    }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
