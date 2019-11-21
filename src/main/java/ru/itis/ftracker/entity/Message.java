@@ -24,6 +24,11 @@ public class Message {
         this.author = user;
     }
 
+    public Message(String text, String tag) {
+        this.text = text;
+        this.tag = tag;
+    }
+
     public String getAuthorName() {
         boolean isDefinedAuthor = author != null && !author.getUsername().isEmpty();
         return isDefinedAuthor ? author.getUsername() : "<< Anonym >>";

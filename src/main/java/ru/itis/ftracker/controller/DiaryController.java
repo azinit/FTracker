@@ -6,11 +6,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("diary")
 public class DiaryController {
-    @GetMapping
-    public String main(Model model) {
+    @GetMapping("/diary")
+    public String diary(Model model) {
         model.addAttribute("name", "{__diary-page__}");
         return "diary/diary";
+    }
+
+    @GetMapping("/diary/record/new")
+    public String record(Model model) {
+        return "diary/record";
     }
 }

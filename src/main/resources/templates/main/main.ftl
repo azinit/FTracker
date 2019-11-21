@@ -1,10 +1,10 @@
 <#import '../includes/wrapper.ftl' as wrapper>
 
 <@wrapper.page>
-    <section class="jumbotron">
+    <#--<section class="jumbotron">
         <h1>Main Page, yeap</h1>
         <p>Attr: ${name}</p>
-    </section>
+    </section>-->
 
     <div class="container-fluid p-md-5">
         <div class="d-flex flex-row justify-content-around">

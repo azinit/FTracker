@@ -1,10 +1,9 @@
 <#import '../includes/wrapper.ftl' as wrapper>
 
 <@wrapper.page>
-    <section class="jumbotron">
+    <#--<section class="jumbotron">
         <h1>Page: Advices</h1>
-        <p>Attr: ${name}</p>
-    </section>
+    </section>-->
 
     <div class="container-fluid p-md-5">
         <h1 class="font-weight-light p-5">
