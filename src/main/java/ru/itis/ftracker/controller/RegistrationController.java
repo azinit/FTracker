@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import ru.itis.ftracker.entity.Role;
 import ru.itis.ftracker.entity.User;
 import ru.itis.ftracker.repository.UserRepository;
+import ru.itis.ftracker.service.UserService;
 
 import java.util.Collections;
 
@@ -16,7 +17,7 @@ import java.util.Collections;
 @RequestMapping("/signup")
 public class RegistrationController {
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
 
     @GetMapping
     public String main() {
@@ -28,6 +29,14 @@ public class RegistrationController {
             User user,
             Model model
     ) {
+
+        boolean userAdded = userService.addUser(user);
+        if (!userAdded) {
+            model.addAttribute("error", "User exists!");
+            return "signup";
+        }
+        return "redirect:/login";
+        /*
         User userFromDB = userRepository.findByUsername(user.getUsername());
 
         boolean userIsAlreadyExist = userFromDB != null;
@@ -39,6 +48,6 @@ public class RegistrationController {
         user.setActive(true);
         user.setRoles(Collections.singleton(Role.USER));
         userRepository.save(user);
-        return "redirect:/login";
+        return "redirect:/login";*/
     }
 }

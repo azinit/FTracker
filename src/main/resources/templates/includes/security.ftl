@@ -5,8 +5,7 @@
     <#assign
         user = Session.SPRING_SECURITY_CONTEXT.authentication.principal
         name = user.getUsername()
-        isAdmin = true
-<#--        isAdmin = user.isAdmin()-->
+        isAdmin = user.isAdmin()
 <#--        equels "user??" -->
         isAuth = true
     >
