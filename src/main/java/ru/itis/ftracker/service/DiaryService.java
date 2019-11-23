@@ -25,4 +25,13 @@ public class DiaryService {
     public String getMyMotivationComment() {
         return null;
     }
+
+    // TODO: Refactor: reversed as arg
+    public Iterable<Record> findAll() {
+        return recordRepository.findAll();
+    }
+
+    public Iterable<Record> findAllReversed() {
+        return recordRepository.findAllByOrderByIdDesc();
+    }
 }

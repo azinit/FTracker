@@ -12,4 +12,9 @@ section {
   background-color: #494949;
 }
 
+.auth-btn {
+  position: absolute;
+  right: 1vw;
+}
+
 /*# sourceMappingURL=wrapper.css.map */

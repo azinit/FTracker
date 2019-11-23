@@ -11,17 +11,16 @@
         <nav class="navbar navbar-expand navbar-dark bg-dark col rounded-left">
             <div class="collapse navbar-collapse">
                 <div class="navbar-nav">
-                    <a href="/" class="nav-item nav-link">Landing</a>
-                    <a href="/index" class="nav-item nav-link">Index</a>
-                    <a href="/main" class="nav-item nav-link">Main</a>
                     <#if isAuth>
-                        <a href="/profile" class="nav-item nav-link">Profile</a>
-                        <a href="/advices" class="nav-item nav-link">Advices</a>
-                        <a href="/diary" class="nav-item nav-link">Diary</a>
-                        <a href="/messages" class="nav-item nav-link">Messages</a>
+                        <a href="/main" class="nav-item nav-link">Главная</a>
+                        <a href="/profile" class="nav-item nav-link">Профиль</a>
+                        <a href="/advices" class="nav-item nav-link">Советы</a>
+                        <a href="/diary" class="nav-item nav-link">Дневник</a>
+                        <a href="/messages" class="nav-item nav-link text-muted">Сообщения</a>
                     <#else>
-                        <a href="/login" class="nav-item nav-link">Login</a>
                     </#if>
+                    <a href="/" class="nav-item nav-link text-muted">Лендинг</a>
+                    <a href="/index" class="nav-item nav-link text-muted">Index</a>
                     <#if isAdmin>
                         <li class="nav-item">
                             <a class="nav-item nav-link text-warning" href="/admin">Admin panel</a>
@@ -33,11 +32,14 @@
                     <#--                    <a class="nav-item nav-link" href="advices.html">Советы</a>-->
                     <#--                    <a class="nav-item nav-link" href="#">Графики</a>-->
                     <#if isAuth>
-                        <form action="/logout" method="post">
+                        <form action="/logout" method="post" class="auth-btn">
                             <input type="hidden" name="_csrf" value="${ _csrf.token }">
-                            <button class="btn btn-primary" type="submit">Sign Out</button>
+                            <button class="btn btn-primary" type="submit">Выйти</button>
                         </form>
+                    <#else>
+                        <a href="/login" class="btn btn-primary auth-btn">Войти</a>
                     </#if>
+                <#--                        <button class="btn btn-primary" type="submit">Выйти</button>-->
                 </div>
             </div>
         </nav>

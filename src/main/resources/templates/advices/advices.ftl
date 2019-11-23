@@ -13,6 +13,7 @@
             <div class="d-flex flex-row pb-5">
                 <div class="font-italic display-4 pl-5">-будет день - будет тренировка</div>
             </div>
+            <hr>
             <div class="d-flex flex-row">
                 <div>совет от профессиональных диетологов:</div>
             </div>

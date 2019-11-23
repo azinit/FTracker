@@ -1,21 +1,33 @@
 <#import '../includes/wrapper.ftl' as wrapper>
 
 <@wrapper.page>
-    <section class="jumbotron">
+    <#--<section class="jumbotron">
         <h1>Page: Profile</h1>
-        <p class="text-muted"><b>Email:</b> ${user.email}</p>
-    </section>
+    </section>-->
 
     <div class="container-fluid p-md-5">
         <div class="d-flex flex-row p-5">
             <div class="col-3 text-right">
                 <img src="img/ava.jpg" class="rounded img-fluid" width="250" height="250">
             </div>
+
             <p class="align-self-center col-10 display-4">
-                Имя: ${user.firstName} <br>
-                Фамилия: ${user.lastName} <br>
-                Вес: 70 кг <br>
+                Имя: ${user.firstName} <br/>
+                Фамилия: ${user.lastName} <br/>
+                Вес: 70 кг <br/>
+                Email: ${user.email} <br/>
             </p>
+            <#--<div class="align-self-center col-10 display-4">
+                <p> </p>
+                <p></p>
+                <p></p>
+                <p class="text-muted"><b>Email:</b> </p>
+            </div>-->
+            <#--<p class="align-self-center col-10 display-4">
+                <br>
+                 <br>
+                 <br>
+            <p class="text-muted"><b>Email:</b> ${user.email}</p>-->
         </div>
         <h2 class="d-flex flex-row ">
             <p class="text-center col-6">

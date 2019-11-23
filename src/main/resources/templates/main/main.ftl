@@ -5,7 +5,13 @@
         <h1>Main Page, yeap</h1>
         <p>Attr: ${name}</p>
     </section>-->
+<#--    <#if isAuth>-->
 
+    <section class="jumbotron">
+        <span class="h2">Заметка себе: </span>
+        <span class="h3">не проходи мимо фастфудочных</span>
+    </section>
+<#--    </#if>-->
     <div class="container-fluid p-md-5">
         <div class="d-flex flex-row justify-content-around">
             <div class="col-7">
