@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
-@RequestMapping("main")
+@RequestMapping("home")
 public class MainController {
     @GetMapping
-    public String main(Model model) {
-        model.addAttribute("name", "{__main-page__}");
-        return "main/main";
+    public String home(Model model) {
+//        model.addAttribute("name", "{__main-page__}");
+        return "home/home";
     }
 }

@@ -97,4 +97,9 @@ public class Record {
     public void setUser(User user) {
         this.user = user;
     }
+
+    @Override
+    public String toString() {
+        return String.format("Record[a:%s | d:%s | Comment:'%s'", user, day, comment);
+    }
 }

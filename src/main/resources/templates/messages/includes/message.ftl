@@ -1,5 +1,8 @@
 <#macro message m>
     <div class="card my-3">
+        <#if m.filename??>
+            <img src="uploads/${m.filename}" alt="" class="card-img-top">
+        </#if>
         <div class="card-header text-center">
             ${m.authorName}
         </div>

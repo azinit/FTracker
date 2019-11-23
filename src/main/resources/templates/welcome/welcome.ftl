@@ -1,7 +1,7 @@
 <#import '../includes/wrapper.ftl' as wrapper>
 
 <#assign extra_styles>
-    <link rel="stylesheet" href="css/landing.css">
+    <link rel="stylesheet" href="css/welcome.css">
 </#assign>
 <#--<#assign extra_scripts>
     <script src="js/somemodule.js"></script>

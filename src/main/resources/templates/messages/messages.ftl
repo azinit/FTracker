@@ -8,12 +8,18 @@
 
     <div class="form-group container">
         <h1>New message...</h1>
-        <form method="post" action="/messages/add">
+        <form method="post" action="/messages/add" enctype="multipart/form-data">
             <div class="form-group">
                 <input type="text" name="text" placeholder="Type text..." class="form-control">
             </div>
             <div class="form-group">
                 <input type="text" name="tag" placeholder="Type tag..." class="form-control">
+            </div>
+            <div class="form-group">
+                <div class="custom-file">
+                    <input type="file" name="file" id="customFile">
+                    <label for="customFile" class="custom-file-label">Choose file</label>
+                </div>
             </div>
             <input type="hidden" name="_csrf" value="${ _csrf.token }">
             <div class="form-group">

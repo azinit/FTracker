@@ -1,9 +1,10 @@
 <#import '../includes/wrapper.ftl' as wrapper>
+<#assign extra_scripts>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="js/profile.js"></script>
+</#assign>
 
-<@wrapper.page>
-    <#--<section class="jumbotron">
-        <h1>Page: Profile</h1>
-    </section>-->
+<@wrapper.page extra_scripts=extra_scripts>
 
     <div class="container-fluid p-md-5">
         <div class="d-flex flex-row p-5">
@@ -14,7 +15,7 @@
             <p class="align-self-center col-10 display-4">
                 Имя: ${user.firstName} <br/>
                 Фамилия: ${user.lastName} <br/>
-                Вес: 70 кг <br/>
+                Вес: ${weight} кг <br/>
                 Email: ${user.email} <br/>
             </p>
             <#--<div class="align-self-center col-10 display-4">
@@ -36,9 +37,11 @@
                 Жиры: 35<br>
                 Углеводы: 140<br>
             </p>
-            <div class="text-center">
+            <div class="text-center col-6">
                 <p class="">Цель : Набрать массу</p>
-                <img src="img/graphic.png" width="500" class="rounded img-fluid">
+                <canvas id="progress"></canvas>
+<#--                <div class="col-4"><canvas id="progress"></canvas></div>-->
+<#--                <img src="img/graphic.png" width="500" class="rounded img-fluid">-->
             </div>
         </h2>
 

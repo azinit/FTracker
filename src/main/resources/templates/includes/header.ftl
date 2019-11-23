@@ -3,23 +3,26 @@
 <header class="container-fluid py-4 pl-4 pr-0">
     <div class="d-flex flex-row">
         <div class="navbar-brand col-3 align-content-center col">
-            <a href="/main">
+            <a href="/">
                 <img src="img/logo.png" width="60" height="60" class="d-inline-block align-content-center" alt="">
             </a>
-            <span>FTracker <small class="text-muted">(${name})</small></span>
+            <span>
+                FTracker
+                <#if isAuth><small class="text-muted">(${name})</small></#if>
+            </span>
         </div>
         <nav class="navbar navbar-expand navbar-dark bg-dark col rounded-left">
             <div class="collapse navbar-collapse">
                 <div class="navbar-nav">
                     <#if isAuth>
-                        <a href="/main" class="nav-item nav-link">Главная</a>
+                        <a href="/home" class="nav-item nav-link">Главная</a>
                         <a href="/profile" class="nav-item nav-link">Профиль</a>
                         <a href="/advices" class="nav-item nav-link">Советы</a>
                         <a href="/diary" class="nav-item nav-link">Дневник</a>
                         <a href="/messages" class="nav-item nav-link text-muted">Сообщения</a>
+                        <a href="/welcome" class="nav-item nav-link text-muted">О нас</a>
                     <#else>
                     </#if>
-                    <a href="/" class="nav-item nav-link text-muted">Лендинг</a>
                     <a href="/index" class="nav-item nav-link text-muted">Index</a>
                     <#if isAdmin>
                         <li class="nav-item">
