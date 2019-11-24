@@ -11,6 +11,7 @@
         <span class="h2">Заметка себе: </span>
         <span class="h3">не проходи мимо фастфудочных</span>
     </section>
+
 <#--    </#if>-->
     <div class="container-fluid p-md-5">
         <div class="d-flex flex-row justify-content-around">
@@ -104,6 +105,17 @@
             <div class="col-3">
                 <h2>М - Мотивация</h2>
                 <h5 class="font-italic">Бог есть и он Богдан</h5>
+            </div>
+        </div>
+        <div class="card mt-5">
+            <div class="card-header">
+                <span>МОТИВАЦИЯ</span>
+            </div>
+            <div class="card-body">
+                ${quote.text}
+            </div>
+            <div class="card-footer">
+                ${quote.author.fullName}
             </div>
         </div>
     </div>

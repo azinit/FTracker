@@ -51,4 +51,8 @@ public class Celebrity {
     public void setPhoto(String photo) {
         this.photo = photo;
     }
+
+    public String getFullName() {
+        return firstName + ' ' + lastName;
+    }
 }

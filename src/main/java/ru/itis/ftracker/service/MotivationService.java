@@ -6,6 +6,9 @@ import ru.itis.ftracker.entity.MotivationalQuote;
 import ru.itis.ftracker.repository.CelebrityRepository;
 import ru.itis.ftracker.repository.MotivationalQuoteRepository;
 
+import java.util.List;
+import java.util.Random;
+
 @Service
 public class MotivationService {
     @Autowired
@@ -14,7 +17,14 @@ public class MotivationService {
     @Autowired
     private MotivationalQuoteRepository motivationalQuoteRepository;
 
+    public List<MotivationalQuote> findAll() {
+        return motivationalQuoteRepository.findAllByOrderById();
+    }
+
     public MotivationalQuote getRandom() {
-        return null;
+        Random rand = new Random();
+        List<MotivationalQuote> quotes = findAll();
+        MotivationalQuote randomQuote = quotes.get(rand.nextInt(quotes.size()));
+        return randomQuote;
     }
 }
