@@ -41,6 +41,8 @@ public class User implements UserDetails {
     @JoinColumn(name = "program_id")
     private NutritionProgram programActive;
     private int programDay;
+    @Enumerated(EnumType.STRING)
+    private Workload workload;
 
     public Long getId() {
         return id;
@@ -145,5 +147,17 @@ public class User implements UserDetails {
 
     public boolean isAdmin() {
         return roles.contains(Role.ADMIN);
+    }
+
+    public Workload getWorkload() {
+        return workload;
+    }
+
+    public void setWorkload(Workload workload) {
+        this.workload = workload;
+    }
+
+    public void updateDay() {
+        programDay++;
     }
 }

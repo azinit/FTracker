@@ -20,3 +20,13 @@
         <button class="btn btn-primary" type="${type}">${label}</button>
     </div>
 </#macro>
+
+<#macro diff value>
+    <#if (value == 0)>
+        <span class="text-muted">${ value }</span>
+    <#elseif (value > 0)>
+        <span class="text-success">+ ${ value }</span>
+    <#else>
+        <span class="text-danger">${ value }</span>
+    </#if>
+</#macro>

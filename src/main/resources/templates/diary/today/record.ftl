@@ -2,7 +2,7 @@
 
 <@wrapper.page>
     <div class="container">
-        <form method="post" action="/diary/record/new" class="container-fluid p-5" enctype="multipart/form-data">
+        <form method="post" action="/diary/today" class="container-fluid p-5" enctype="multipart/form-data">
             <h1 class="font-weight-bold text-center">Создание новой заметки</h1>
             <div class="flex-row d-flex">
                 <div class="container-fluid col-6">

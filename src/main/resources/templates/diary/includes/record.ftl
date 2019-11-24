@@ -1,3 +1,5 @@
+<#import '../../includes/controls.ftl' as controls>
+
 <#macro record r>
 <#--<div class="card my-3">-->
 <#--    <p>${r.day}</p>-->
@@ -29,6 +31,8 @@
                     <div class="col-6">
                         <span class="h5 font-weight-light">Вес: </span>
                         <span class="text-muted">${r.weight} кг</span>
+                        <#if r.diffPrevWeight??><@controls.diff r.diffPrevWeight/></#if>
+                        <#if r.diffPrevFats??><@controls.diff r.diffPrevFats/></#if>
                     </div>
                 </div>
                 <br>

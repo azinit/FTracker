@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import ru.itis.ftracker.entity.NutritionProgram;
 import ru.itis.ftracker.entity.Record;
 import ru.itis.ftracker.entity.User;
 import ru.itis.ftracker.repository.RecordRepository;
@@ -19,10 +20,19 @@ import java.util.List;
 @Service
 public class DiaryService {
     @Autowired
+    private ProgressService progressService;
+
+    @Autowired
     private RecordRepository recordRepository;
 
-    public boolean add(Record record) {
-        recordRepository.save(record);
+    public boolean add(Record curState) {
+        List<Record> userRecords = getRecords(curState.getUser());
+        boolean isFirstRecord = userRecords.isEmpty();
+        if (!isFirstRecord) {
+            Record prevState = getCurrentState(curState.getUser());
+            progressService.extend(curState, prevState);
+        }
+        recordRepository.save(curState);
         return true;
     }
 
@@ -43,7 +53,7 @@ public class DiaryService {
         return recordRepository.findAll();
     }
 
-    public Iterable<Record> findAllReversed(User user) {
+    public List<Record> findAllReversed(User user) {
         return recordRepository.findAllByUserOrderByDayDesc(user);
     }
 
@@ -58,7 +68,6 @@ public class DiaryService {
     public List<Record> getRecords(User user) {
         return recordRepository.findAllByUserOrderByDayAsc(user);
     }
-
 //    @RequestMapping(value = "/api/diary/records", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
     /*public List<Record> getRecords() {
         Authentication auth = SecurityContextHolder.getContext().getAuthentication();
@@ -68,6 +77,6 @@ public class DiaryService {
 
     public int getProgramDay(User user) {
         // TODO: Implement (curDate - startDate)
-        return 5;
+        return user.getProgramDay();
     }
 }
