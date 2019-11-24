@@ -1,4 +1,4 @@
-<#import '../includes/wrapper.ftl' as wrapper>
+<#import '../../includes/wrapper.ftl' as wrapper>
 
 <@wrapper.page>
     <div class="container">

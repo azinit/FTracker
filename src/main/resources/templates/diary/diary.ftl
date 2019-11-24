@@ -13,7 +13,7 @@
 
     <div class="container-fluid col-8 mt-3">
         <div class="text-center">
-            <a href="/diary/record/new" class="btn btn-primary">Новая запись</a>
+            <a href="/diary/today" class="btn btn-primary">Новая запись</a>
         </div>
         <div class="record-list mt-3">
             <#list records as record>

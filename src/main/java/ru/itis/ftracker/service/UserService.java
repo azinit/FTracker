@@ -1,6 +1,8 @@
 package ru.itis.ftracker.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -105,5 +107,12 @@ public class UserService implements UserDetailsService {
 
     public Object getInfo() {
         return null;
+    }
+
+    public User getCurrentUser() {
+        // https://stackoverflow.com/questions/31159075/how-to-find-out-the-currently-logged-in-user-in-spring-boot
+        // https://stackoverflow.com/questions/50355486/spring-boot-get-current-users-username
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        return (User) auth.getPrincipal();
     }
 }

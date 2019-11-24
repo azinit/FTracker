@@ -1,6 +1,7 @@
 <#import '../includes/wrapper.ftl' as wrapper>
 <#assign extra_scripts>
     <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="js/progress.js"></script>
     <script src="js/profile.js"></script>
 </#assign>
 
@@ -15,7 +16,7 @@
             <p class="align-self-center col-10 display-4">
                 Имя: ${user.firstName} <br/>
                 Фамилия: ${user.lastName} <br/>
-                Вес: ${weight} кг <br/>
+                Вес: <span class="current-weight"></span> кг <br/>
                 Email: ${user.email} <br/>
             </p>
             <#--<div class="align-self-center col-10 display-4">
@@ -33,9 +34,9 @@
         <h2 class="d-flex flex-row ">
             <p class="text-center col-6">
                 Среднее кол-во за день: <br><br>
-                Белки: 73<br>
-                Жиры: 35<br>
-                Углеводы: 140<br>
+                Белки: <span class="avg-proteins"></span><br>
+                Жиры: <span class="avg-fats"></span><br>
+                Углеводы: <span class="avg-carbohydrates"></span><br>
             </p>
             <div class="text-center col-6">
                 <p class="">Цель : Набрать массу</p>

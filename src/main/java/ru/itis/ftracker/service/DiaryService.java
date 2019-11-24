@@ -1,11 +1,17 @@
 package ru.itis.ftracker.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import ru.itis.ftracker.entity.Record;
 import ru.itis.ftracker.entity.User;
 import ru.itis.ftracker.repository.RecordRepository;
+import ru.itis.ftracker.repository.UserRepository;
 
 import java.util.HashMap;
 import java.util.List;
@@ -38,7 +44,7 @@ public class DiaryService {
     }
 
     public Iterable<Record> findAllReversed(User user) {
-        return recordRepository.findAllByUserOrderByIdDesc(user);
+        return recordRepository.findAllByUserOrderByDayDesc(user);
     }
 
     public Record getCurrentState(User user) {
@@ -50,8 +56,15 @@ public class DiaryService {
     }
 
     public List<Record> getRecords(User user) {
-        return recordRepository.findAllByUser(user);
-    };
+        return recordRepository.findAllByUserOrderByDayAsc(user);
+    }
+
+//    @RequestMapping(value = "/api/diary/records", method = RequestMethod.GET, produces = MediaType.APPLICATION_JSON_VALUE, consumes = MediaType.APPLICATION_JSON_VALUE)
+    /*public List<Record> getRecords() {
+        Authentication auth = SecurityContextHolder.getContext().getAuthentication();
+        User user = userRepository.findByUsername((String) auth.getPrincipal());
+        return getRecords(user);
+    }*/
 
     public int getProgramDay(User user) {
         // TODO: Implement (curDate - startDate)

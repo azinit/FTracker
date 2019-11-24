@@ -1,7 +1,9 @@
 package ru.itis.ftracker.controller;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -24,11 +26,6 @@ public class ProfileController {
             @AuthenticationPrincipal User user,
             Model model
     ) {
-//        List<Record> records = diaryService.getRecords(user);
-//        boolean isUndefinedProgress = records.isEmpty();
-        Record currentState = diaryService.getCurrentState(user);
-        String weight = (currentState == null) ? "(?)" : currentState.getWeight().toString();
-        model.addAttribute("weight", weight);
         model.addAttribute("user", user);
         return "profile/profile";
     }

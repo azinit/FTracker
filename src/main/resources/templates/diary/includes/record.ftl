@@ -13,7 +13,7 @@
                 <span class="small text-muted">${r.date?date?string("dd.MM.yyyy")}</span>
             </div>
             <div>
-                <a href="/diary/record/new" class="btn btn-sm btn-light">Изменить</a>
+                <a href="/diary/today" class="btn btn-sm btn-light">Изменить</a>
                 <#--                        <button type="button" class="btn btn-sm btn-light">Изменить</button>-->
             </div>
         </div>

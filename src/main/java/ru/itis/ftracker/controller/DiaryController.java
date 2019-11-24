@@ -34,19 +34,19 @@ public class DiaryController {
         return "diary/diary";
     }
 
-    @GetMapping("record/new")
+    @GetMapping("today")
     public String addRecord(Model model) {
-        return "diary/record";
+        return "diary/today/record";
     }
 
-    @PostMapping("record/new")
+    @PostMapping("today")
     public String submitRecord(
             @AuthenticationPrincipal User user,
             @RequestParam Double proteins,
             @RequestParam Double fats,
             @RequestParam Double carbohydrates,
             @RequestParam Double weight,
-            @RequestParam String mood,
+            @RequestParam(defaultValue = "OK") String mood,
 //            @RequestParam ("file") MultipartFile photo,
             @RequestParam String comment
     ) {

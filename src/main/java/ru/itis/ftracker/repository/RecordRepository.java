@@ -9,9 +9,9 @@ import java.util.List;
 public interface RecordRepository extends CrudRepository<Record, Long> {
     List<Record> findAllByOrderByIdDesc();
 
-    List<Record> findAllByUser(User user);
+    List<Record> findAllByUserOrderByDayAsc(User user);
 
-    List<Record> findAllByUserOrderByIdDesc(User user);
+    List<Record> findAllByUserOrderByDayDesc(User user);
 
 //    @Query(value="select p from #{#entityName} p where p.id=:projectId and p.projectName=:projectName")
 }
