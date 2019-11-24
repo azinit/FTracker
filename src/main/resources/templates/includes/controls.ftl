@@ -30,3 +30,17 @@
         <span class="text-danger">${ value }</span>
     </#if>
 </#macro>
+
+<#macro card mt=2 mb=2 header="HEADER" body="TEXT" footer="FOOTER">
+    <div class="card mt-${mt} mb-${mb}">
+        <div class="card-header">
+            <span>${header}</span>
+        </div>
+        <div class="card-body">
+            <span>${body}</span>
+        </div>
+        <div class="card-footer">
+            <i>${footer}</i>
+        </div>
+    </div>
+</#macro>

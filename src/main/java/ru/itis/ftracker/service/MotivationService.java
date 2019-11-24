@@ -24,7 +24,6 @@ public class MotivationService {
     public MotivationalQuote getRandom() {
         Random rand = new Random();
         List<MotivationalQuote> quotes = findAll();
-        MotivationalQuote randomQuote = quotes.get(rand.nextInt(quotes.size()));
-        return randomQuote;
+        return quotes.get(rand.nextInt(quotes.size()));
     }
 }

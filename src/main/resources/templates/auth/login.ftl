@@ -20,6 +20,6 @@
             <@controls.csrf token="${ _csrf.token }"/>
             <@controls.button label="Sign In"></@controls.button>
         </form>
-        <a href="/signup">Create account</a>
+        <a href="/signup">Создать аккаунт</a>
     </div>
 </@wrapper.page>

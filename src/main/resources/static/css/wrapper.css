@@ -2,6 +2,10 @@ main {
   min-height: 84vh;
 }
 
+ul {
+  list-style: none;
+}
+
 footer {
   min-height: 8vh;
   background-color: #323232;

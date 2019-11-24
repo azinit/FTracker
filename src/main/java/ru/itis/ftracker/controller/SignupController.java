@@ -34,6 +34,7 @@ public class SignupController {
     ) {
         user.setFirstName(firstName);
         user.setLastName(lastName);
+//        user.setProgramActive();
         boolean userAdded = userService.addUser(user);
         if (!userAdded) {
             model.addAttribute("error", "User exists!");

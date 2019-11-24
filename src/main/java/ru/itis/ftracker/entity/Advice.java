@@ -14,30 +14,20 @@ public class Advice {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "program_id")
     private NutritionProgram program;
-    private String[] tags;
     private String text;
     private String image;
 
     public Advice() {
     }
 
-    public Advice(NutritionProgram program, String[] tags, String text, String image) {
+    public Advice(NutritionProgram program, String text, String image) {
         this.program = program;
-        this.tags = tags;
         this.text = text;
         this.image = image;
     }
 
     public Long getId() {
         return id;
-    }
-
-    public String[] getTags() {
-        return tags;
-    }
-
-    public void setTags(String[] tags) {
-        this.tags = tags;
     }
 
     public String getText() {

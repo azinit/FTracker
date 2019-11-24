@@ -1,0 +1,20 @@
+.recommendations {
+    margin-top: 10px;
+    margin-left: -40px;
+}
+.blockquote {
+    transition: background-color 1s;
+}
+
+.blockquote:hover {
+    background-color: #f3f3f3;
+}
+
+.blockquote:active {
+    background-color: #c5f3e6;
+}
+
+hr {
+    padding: 0;
+    margin: 0;
+}

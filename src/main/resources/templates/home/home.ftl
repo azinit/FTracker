@@ -1,4 +1,5 @@
 <#import '../includes/wrapper.ftl' as wrapper>
+<#import '../includes/controls.ftl' as controls>
 
 <@wrapper.page>
     <#--<section class="jumbotron">
@@ -13,7 +14,9 @@
     </section>
 
 <#--    </#if>-->
-    <div class="container-fluid p-md-5">
+    <div class="container-fluid p-md-5 pt-0">
+        <@controls.card mt=0 mb=5 header="МОТИВАЦИЯ" body=quote.text footer=quote.author.fullName />
+        <@controls.card mt=0 mb=5 header="СОВЕТ" body=advice.text footer="Программа питания: " + advice.program.name />
         <div class="d-flex flex-row justify-content-around">
             <div class="col-7">
                 <h1 class="display-4">Моя тренировка</h1>
@@ -105,17 +108,6 @@
             <div class="col-3">
                 <h2>М - Мотивация</h2>
                 <h5 class="font-italic">Бог есть и он Богдан</h5>
-            </div>
-        </div>
-        <div class="card mt-5">
-            <div class="card-header">
-                <span>МОТИВАЦИЯ</span>
-            </div>
-            <div class="card-body">
-                ${quote.text}
-            </div>
-            <div class="card-footer">
-                ${quote.author.fullName}
             </div>
         </div>
     </div>
