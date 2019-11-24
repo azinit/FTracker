@@ -1,5 +1,6 @@
 <#import '../includes/wrapper.ftl' as wrapper>
 <#import '../includes/controls.ftl' as controls>
+<#include '../includes/security.ftl'>
 
 <#assign extra_styles>
     <link rel="stylesheet" href="css/home.css">
@@ -11,13 +12,17 @@
 </#assign>
 
 <@wrapper.page extra_scripts=extra_scripts>
-    <section class="jumbotron text-center">
-        <blockquote class="blockquote text-center my-0 py-4">
-            <p class="mb-0">не проходи мимо фастфудочных</p>
-            <div class="blockquote-footer"><cite title="Source Title">Дневник, заметка себе, 24.11.19</cite></div>
-        </blockquote>
-        <#--        <span>« не проходи мимо фастфудочных »</span>-->
-    </section>
+    <#if user??>
+        <#if user.recordActive??>
+            <#assign r=user.recordActive/>
+            <section class="jumbotron text-center">
+                <blockquote class="blockquote text-center my-0 py-4">
+                    <p class="mb-0">${r.comment}</p>
+                    <div class="blockquote-footer"><cite title="Source Title">Дневник, заметка себе, ${r.date?date?string("dd.MM.yyyy")}</cite></div>
+                </blockquote>
+            </section>
+        </#if>
+    </#if>
 
     <section class="common-info">
         <div class="container-fluid p-md-5 pt-0">
@@ -100,7 +105,8 @@
                                 <option value="2">Среда</option>
                                 <option value="3">Пятница</option>
                             </select>
-                            <input type="text" class="form-control" aria-label="Text input with segmented dropdown button"
+                            <input type="text" class="form-control"
+                                   aria-label="Text input with segmented dropdown button"
                                    placeholder="Упражнение">
                             <div class="input-group-append">
                                 <button type="submit" class="btn btn-outline-secondary">Добавить</button>
@@ -109,12 +115,8 @@
                     </form>
                 </div>
                 <div class="col-4 sidebar">
-<#--                    <@controls.card mt=0 mb=5 header="МОТИВАЦИЯ" body=quote.text footer=quote.author.fullName />-->
                     <@controls.quote mt=0 mb=5 header="МОТИВАЦИЯ" body=quote.text footer=quote.author.fullName />
-<#--                    <@controls.card mt=0 mb=5 header="МОТИВАЦИЯ" body=quote.text footer=quote.author.fullName />-->
                     <@controls.quote mt=0 mb=5 header="СОВЕТ" body=advice.text footer="Программа питания: " + advice.program.name />
-                    <#--                <h2>М - Мотивация</h2>-->
-                    <#--                <h5 class="font-italic">Бог есть и он Богдан</h5>-->
                 </div>
             </div>
         </div>
@@ -129,13 +131,13 @@
         <h2 class="text-center mb-5">Приступай прямо сейчас!</h2>
         <div class="card-group">
             <@controls.card_action header="Советы" action_url="/advices"
-                body="Посмотреть весь список советов по своей программе"/>
+            body="Посмотреть весь список советов по своей программе"/>
             <@controls.card_action header="Дневник" action_url="/diary"
-                body="Узнать историю своих занятий / диеты."/>
+            body="Узнать историю своих занятий / диеты."/>
             <@controls.card_action header="Профиль" action_url="/profile"
-                body="Настроить свой профиль и посмотреть общий прогресс"/>
+            body="Настроить свой профиль и посмотреть общий прогресс"/>
             <@controls.card_action header="Hub" action_url="/hub"
-                body="Посмотреть успехи и питание других пользователей"/>
+            body="Посмотреть успехи и питание других пользователей"/>
         </div>
     </section>
 </@wrapper.page>

@@ -15,11 +15,11 @@
             You have been logged out.
         </#if>
         <form action="/login" method="post">
-            <@controls.input label='Username' name='username'/>
-            <@controls.input label='Password' name='password' type="password"/>
+            <@controls.input label='Логин' name='username'/>
+            <@controls.input label='Пароль' name='password' type="password"/>
             <@controls.csrf token="${ _csrf.token }"/>
-            <@controls.button label="Sign In"></@controls.button>
+            <@controls.button label="Зайти"></@controls.button>
         </form>
-        <a href="/signup">Создать аккаунт</a>
+        <a href="/signup" class="text-info">Создать аккаунт</a>
     </div>
 </@wrapper.page>

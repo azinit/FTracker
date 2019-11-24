@@ -40,6 +40,11 @@ public class User implements UserDetails {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "program_id")
     private NutritionProgram programActive;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "record_id")
+    private Record recordActive;
+
     private int programDay;
     @Enumerated(EnumType.STRING)
     private Workload workload;
@@ -159,5 +164,13 @@ public class User implements UserDetails {
 
     public void updateDay() {
         programDay++;
+    }
+
+    public Record getRecordActive() {
+        return recordActive;
+    }
+
+    public void setRecordActive(Record recordActive) {
+        this.recordActive = recordActive;
     }
 }

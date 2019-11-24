@@ -17,15 +17,21 @@
 
 <#macro button label type="submit">
     <div class="form-group">
-        <button class="btn btn-primary" type="${type}">${label}</button>
+        <button class="btn btn-info" type="${type}">${label}</button>
     </div>
 </#macro>
 
-<#macro diff value>
+<#macro diff value strict=false>
+    <#if strict>
+        <#assign success="text-danger">
+    <#else>
+        <#assign success="text-success">
+    </#if>
+
     <#if (value == 0)>
         <span class="text-muted">${ value }</span>
     <#elseif (value > 0)>
-        <span class="text-success">+ ${ value }</span>
+        <span class="${success}">+ ${ value }</span>
     <#else>
         <span class="text-danger">${ value }</span>
     </#if>
@@ -82,4 +88,22 @@ img="img/action-card.jpg" action_label="Перейти" action_url="#">
             </blockquote>
         </div>
     </div>
+</#macro>
+
+<#macro mood value>
+    <#if (value == "ANGRY")>
+        <span class="text-danger">${ "😡 Злость" }</span>
+    <#elseif (value == "SAD")>
+        <span class="text-warning">${ "😞 Грусть" }</span>
+    <#elseif (value == "TIRED")>
+        <span class="text-secondary">${ "🙁 Усталость" }</span>
+    <#elseif (value == "OK")>
+        <span class="text-info">${ "🙂 Ок" }</span>
+    <#elseif (value == "SATISFIED")>
+        <span class="text-primary">${ "😉 Удовлетворенность" }</span>
+    <#elseif (value == "PRODUCTIVE")>
+        <span class="text-success">${ "😉 Продуктивность" }</span>
+    <#else>
+        <span>${ value }</span>
+    </#if>
 </#macro>

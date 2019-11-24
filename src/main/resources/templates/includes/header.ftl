@@ -4,7 +4,7 @@
     <div class="d-flex flex-row">
         <div class="navbar-brand col-3 align-content-center col">
             <a href="/">
-                <img src="img/logo.png" width="60" height="60" class="d-inline-block align-content-center" alt="">
+                <img src="/img/logo.png" width="60" height="60" class="d-inline-block align-content-center" alt="">
             </a>
             <span>
                 FTracker
@@ -40,7 +40,7 @@
                             <button class="btn btn-secondary" type="submit">Выйти</button>
                         </form>
                     <#else>
-                        <a href="/login" class="btn btn-primary auth-btn">Войти</a>
+                        <a href="/login" class="btn btn-info auth-btn">Войти</a>
                     </#if>
                 <#--                        <button class="btn btn-primary" type="submit">Выйти</button>-->
                 </div>

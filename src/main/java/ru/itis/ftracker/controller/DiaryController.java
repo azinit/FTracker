@@ -1,5 +1,6 @@
 package ru.itis.ftracker.controller;
 
+import org.apache.commons.lang.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.stereotype.Controller;
@@ -8,11 +9,16 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 import ru.itis.ftracker.entity.Mood;
 import ru.itis.ftracker.entity.Record;
 import ru.itis.ftracker.entity.User;
 import ru.itis.ftracker.service.DiaryService;
+import ru.itis.ftracker.service.FileService;
 
+import java.io.IOException;
+import java.time.LocalDate;
+import java.util.Date;
 import java.util.List;
 
 @Controller
@@ -21,6 +27,9 @@ public class DiaryController {
     @Autowired
     private DiaryService diaryService;
 
+    @Autowired
+    private FileService fileService;
+
     @GetMapping
     public String diary(
             @AuthenticationPrincipal User user,
@@ -28,12 +37,33 @@ public class DiaryController {
     ) {
         // TODO: Add filter (from start, from end ...)
         List<Record> records = diaryService.findAllReversed(user);
+        model.addAttribute("already_created", diaryService.alreadyCreated(user));
         model.addAttribute("records", records);
         return "diary/diary";
     }
 
     @GetMapping("today")
-    public String addRecord(Model model) {
+    public String addRecord(
+            @AuthenticationPrincipal User user,
+            Model model
+    ) {
+        if (diaryService.alreadyCreated(user)) {
+            return "redirect:/diary/update";
+        }
+        return "diary/today/record";
+    }
+
+    @GetMapping("update")
+    public String updateRecord(
+            @AuthenticationPrincipal User user,
+            Model model
+    ) {
+        if (!diaryService.alreadyCreated(user)) {
+            return "redirect:/diary/today";
+        }
+
+        Record currentState = diaryService.getCurrentState(user);
+        model.addAttribute("state", currentState);
         return "diary/today/record";
     }
 
@@ -45,21 +75,36 @@ public class DiaryController {
             @RequestParam Double carbohydrates,
             @RequestParam Double weight,
             @RequestParam(defaultValue = "OK") String mood,
-//            @RequestParam ("file") MultipartFile photo,
-            @RequestParam(defaultValue = "*no comments*") String comment
+            @RequestParam("file") MultipartFile file,
+            @RequestParam(defaultValue = "*no comments*") String comment,
+            @RequestParam(defaultValue = "false") Boolean notice
     ) {
         Mood enumMood = Mood.valueOf(mood);
         Record record = new Record(
                 weight, proteins, fats, carbohydrates,
                 diaryService.getProgramDay(user),
-                "dwadwa", comment,
+                null, comment,
                 enumMood, user
         );
+
+        try {
+            String proceedFile = fileService.loadFile(file);
+            if (proceedFile != null) {
+                record.setPhoto(proceedFile);
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
         boolean recordAdded = diaryService.add(record);
         if (recordAdded) {
             user.updateDay();
         }
 
+
+        if (notice) {
+            user.setRecordActive(record);
+        }
         // else: throws errors
         return "redirect:/diary";
     }

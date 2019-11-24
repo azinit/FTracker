@@ -7,14 +7,23 @@
         <p>Attr: ${name}</p>
         <a href="/diary/record/new">New record</a>
     </section>-->
-
-    <h1 class="font-weight-bold text-center">Дневник занятий</h1>
-
+    <div class="text-center jumbotron">
+        <div class="container">
+            <h1 class="font-weight-bold text-center mb-2">Дневник занятий</h1>
+            <p class="mt-3">Здесь вы можете увидеть детальную информацию о своем прогрессе.</p>
+            <p>"Успехи по программе (БЖУ): " - означает, насколько далеко вы ушли от плана по БЖУ показателям.</p>
+            <p>Высчитывается на основе вашего веса, БЖУ, программы питания и сложности.</p>
+        </div>
+        <div class="text-center mt-5">
+            <#if already_created>
+                <a href="/diary/update" class="btn btn-info">Изменить свежую запись</a>
+            <#else>
+                <a href="/diary/today" class="btn btn-info">Новая запись</a>
+            </#if>
+        </div>
+    </div>
 
     <div class="container-fluid col-8 mt-3">
-        <div class="text-center">
-            <a href="/diary/today" class="btn btn-primary">Новая запись</a>
-        </div>
         <div class="record-list mt-3">
             <#list records as record>
                 <@component_record.record record/>

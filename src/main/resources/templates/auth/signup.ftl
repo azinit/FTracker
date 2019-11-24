@@ -17,15 +17,15 @@
             You have been logged out.
         </#if>
         <form action="/signup" method="post">
-            <@controls.input label='First name' name='firstName'/>
-            <@controls.input label='Last name' name='lastName'/>
+            <@controls.input label='Ваше имя' name='firstName'/>
+            <@controls.input label='Фамиля' name='lastName'/>
             <@controls.input label='Email' name='email' type="email"/>
-            <@controls.input label='Username *' name='username' placeholder="Username"
+            <@controls.input label='Логин *' name='username' placeholder="Логин"
                 is_required=true/>
-            <@controls.input label='Password *' name='password' placeholder="Password"
+            <@controls.input label='Пароль *' name='password' placeholder="Пароль"
                 type="password" is_required=true/>
             <@controls.csrf token="${ _csrf.token }"/>
-            <@controls.button label="Sign In"></@controls.button>
+            <@controls.button label="Зарегистрироваться"></@controls.button>
         </form>
     </div>
 </@wrapper.page>

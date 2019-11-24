@@ -1,5 +1,6 @@
 package ru.itis.ftracker.service;
 
+import org.apache.commons.lang.time.DateUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.security.core.Authentication;
@@ -14,6 +15,7 @@ import ru.itis.ftracker.entity.User;
 import ru.itis.ftracker.repository.RecordRepository;
 import ru.itis.ftracker.repository.UserRepository;
 
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 
@@ -26,11 +28,14 @@ public class DiaryService {
     private RecordRepository recordRepository;
 
     public boolean add(Record curState) {
-        List<Record> userRecords = getRecords(curState.getUser());
+        User user = curState.getUser();
+        List<Record> userRecords = getRecords(user);
         boolean isFirstRecord = userRecords.isEmpty();
         if (!isFirstRecord) {
-            Record prevState = getCurrentState(curState.getUser());
+            Record prevState = getCurrentState(user);
             progressService.extend(curState, prevState);
+        } else {
+            user.setProgramDay(1);
         }
         recordRepository.save(curState);
         return true;
@@ -78,5 +83,11 @@ public class DiaryService {
     public int getProgramDay(User user) {
         // TODO: Implement (curDate - startDate)
         return user.getProgramDay();
+    }
+
+    public boolean alreadyCreated(User user) {
+        Date lastRecordDate = getCurrentState(user).getDate();
+        Date current = new Date();
+        return DateUtils.isSameDay(lastRecordDate, current);
     }
 }
