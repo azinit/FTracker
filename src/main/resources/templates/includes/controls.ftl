@@ -44,3 +44,42 @@
         </div>
     </div>
 </#macro>
+
+<#macro card_action
+header="Card title" body="Some quick example text to build on the card title and make up the bulk of the card's content."
+img="img/action-card.jpg" action_label="Перейти" action_url="#">
+    <div class="card" style="width: 18rem;">
+        <img src="${img}" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">${header}</h5>
+            <p class="card-text">${body}</p>
+            <a href="${action_url}" class="btn btn-dark">${action_label}</a>
+        </div>
+    </div>
+</#macro>
+
+<#macro card_overlay>
+    <div class="card bg-dark text-white">
+        <img src="img/action-card.jpg" class="card-img" alt="...">
+        <div class="card-img-overlay">
+            <h5 class="card-title">Card title</h5>
+            <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional
+                content. This content is a little bit longer.</p>
+            <p class="card-text">Last updated 3 mins ago</p>
+        </div>
+    </div>
+</#macro>
+
+<#macro quote mt=2 mb=2 header="HEADER" body="TEXT" footer="FOOTER">
+    <div class="card mt-${mt} mb-${mb}">
+        <div class="card-header">
+            <span>${header}</span>
+        </div>
+        <div class="card-body">
+            <blockquote class="blockquote mb-0">
+                <p><span>${body}</span></p>
+                <div class="blockquote-footer">${footer}</div>
+            </blockquote>
+        </div>
+    </div>
+</#macro>
