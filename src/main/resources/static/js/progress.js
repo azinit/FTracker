@@ -98,3 +98,36 @@ function init_weight() {
     let weight = progress.weights.last();
     $(".current-weight").text((weight) ? weight : defaultNan);
 }
+
+function init_chart_diagram() {
+    console.log("DIAGRAM");
+    let data = [progress.proteins.last(), progress.fats.last(), progress.carbohydrates.last()];
+    let labels = ["Белки", "Жиры", "Углеводы"];
+
+    let ctx = document.getElementById('progress-diagram').getContext('2d');
+    let chart = new Chart(ctx, {
+        // The type of chart we want to create
+        type: 'pie',
+
+        // The data for our dataset
+        /*data: {
+            labels: ['Red', 'Yellow', 'Blue'],
+            datasets: [{
+                data: [10, 20, 30]
+            }],
+        }*/
+        data: {
+            labels: labels,
+            datasets: [{
+                label: "За последний день в дневнике",
+                // https://stackoverflow.com/questions/28828915/how-set-color-family-to-pie-chart-in-chart-js
+                // https://www.chartjs.org/docs/latest/charts/doughnut.html
+                // https://github.com/chartjs/Chart.js/blob/master/samples/scriptable/pie.html
+                backgroundColor: ["#61bed9", "#ffd6b1", "#aa97cc"],
+                // backgroundColor: 'rgba(225,225,225,0.7)',
+                // borderColor: 'rgba(87,87,87,0.7)',
+                data: data,
+            }]
+        },
+    });
+}

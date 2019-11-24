@@ -1,7 +1,14 @@
 <#import '../includes/wrapper.ftl' as wrapper>
 <#import '../includes/controls.ftl' as controls>
 
-<@wrapper.page>
+
+<#assign extra_scripts>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+    <script src="js/progress.js"></script>
+    <script src="js/home.js"></script>
+</#assign>
+
+<@wrapper.page extra_scripts=extra_scripts>
     <#--<section class="jumbotron">
         <h1>Main Page, yeap</h1>
         <p>Attr: ${name}</p>
@@ -15,6 +22,9 @@
 
 <#--    </#if>-->
     <div class="container-fluid p-md-5 pt-0">
+        <div class="col-4">
+            <canvas id="progress-diagram"></canvas>
+        </div>
         <@controls.card mt=0 mb=5 header="МОТИВАЦИЯ" body=quote.text footer=quote.author.fullName />
         <@controls.card mt=0 mb=5 header="СОВЕТ" body=advice.text footer="Программа питания: " + advice.program.name />
         <div class="d-flex flex-row justify-content-around">
