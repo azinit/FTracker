@@ -10,7 +10,7 @@
         <div class="d-flex justify-content-between">
             <div>
                 <span>День ${r.day}</span>
-                <span class="small text-muted">21.11.2019</span>
+                <span class="small text-muted">${r.date?date?string("dd.MM.yyyy")}</span>
             </div>
             <div>
                 <a href="/diary/record/new" class="btn btn-sm btn-light">Изменить</a>
@@ -23,18 +23,24 @@
             <div class="container-fluid">
                 <div class="flex-row d-flex">
                     <div class="col-6">
-                        <span class="h4 font-weight-light">Б/Ж/У за день: </span>
-                        <span class="text-muted">1/2/3</span>
+                        <span class="h5 font-weight-light">Б/Ж/У: </span>
+                        <span class="text-muted">${r.proteins}/${r.fats}/${r.carbohydrates}</span>
                     </div>
                     <div class="col-6">
-                        <span class="h4 font-weight-light">Вес: </span>
+                        <span class="h5 font-weight-light">Вес: </span>
                         <span class="text-muted">${r.weight} кг</span>
                     </div>
                 </div>
                 <br>
-                <div class="col-12">
-                    <span class="h5 font-weight-light">Комментарий: </span>
-                    <span class="text-muted">${r.comment}</span>
+                <div class="flex-row d-flex">
+                    <div class="col-6">
+                        <span class="h5 font-weight-light">Настроение: </span>
+                        <span class="text-muted">${r.mood}</span>
+                    </div>
+                    <div class="col-12">
+                        <span class="h5 font-weight-light">Комментарий: </span>
+                        <span class="text-muted">${r.comment}</span>
+                    </div>
                 </div>
             </div>
             <div class="">

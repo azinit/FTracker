@@ -16,7 +16,8 @@ public class DiaryService {
     private RecordRepository recordRepository;
 
     public boolean add(Record record) {
-        return false;
+        recordRepository.save(record);
+        return true;
     }
 
     public boolean edit(Record record) {
@@ -51,4 +52,9 @@ public class DiaryService {
     public List<Record> getRecords(User user) {
         return recordRepository.findAllByUser(user);
     };
+
+    public int getProgramDay(User user) {
+        // TODO: Implement (curDate - startDate)
+        return 5;
+    }
 }

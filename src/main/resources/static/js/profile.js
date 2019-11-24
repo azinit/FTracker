@@ -30,6 +30,6 @@ function init_char(labels, data) {
     });
 }
 
-let labels = ['Д1', 'Д2', 'Д3', 'Д4', 'Д5', 'Д6', 'Д7'];
-let data = [3, 10, 5, 2, 20, 30, 45];
+let labels = ['Д1', 'Д2', 'Д3', 'Д4', 'Д5'];
+let data = [73, 78,  74, 100, 120];
 init_char(labels, data);

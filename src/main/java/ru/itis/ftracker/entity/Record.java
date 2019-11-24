@@ -11,13 +11,19 @@ public class Record {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
+    // Ration p/f/c (gramm) for weight (kg)
     private Double weight;
+    private Double proteins;
+    private Double fats;
+    private Double carbohydrates;
+
     private int day;            // User@Entity
     private Date date;          // auto
 
     // TODO:
     private String photo;       // optional
     private String comment;     // optional
+    @Enumerated(EnumType.STRING)
     private Mood mood;          // optional
 
     @ManyToOne(fetch = FetchType.EAGER)
@@ -28,10 +34,13 @@ public class Record {
     public Record() {
     }
 
-    public Record(Double weight, int day, Date date, String photo, String comment, Mood mood, User user) {
+    public Record(Double weight, Double proteins, Double fats, Double carbohydrates, int day, Date date, String photo, String comment, Mood mood, User user) {
         this.weight = weight;
+        this.proteins = proteins;
+        this.fats = fats;
+        this.carbohydrates = carbohydrates;
         this.day = day;
-        this.date = date;
+        this.date = new Date();
         this.photo = photo;
         this.comment = comment;
         this.mood = mood;
@@ -101,5 +110,29 @@ public class Record {
     @Override
     public String toString() {
         return String.format("Record[a:%s | d:%s | Comment:'%s'", user, day, comment);
+    }
+
+    public Double getProteins() {
+        return proteins;
+    }
+
+    public void setProteins(Double proteins) {
+        this.proteins = proteins;
+    }
+
+    public Double getFats() {
+        return fats;
+    }
+
+    public void setFats(Double fats) {
+        this.fats = fats;
+    }
+
+    public Double getCarbohydrates() {
+        return carbohydrates;
+    }
+
+    public void setCarbohydrates(Double carbohydrates) {
+        this.carbohydrates = carbohydrates;
     }
 }

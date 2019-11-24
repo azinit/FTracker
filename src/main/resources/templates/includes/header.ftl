@@ -19,8 +19,8 @@
                         <a href="/profile" class="nav-item nav-link">Профиль</a>
                         <a href="/advices" class="nav-item nav-link">Советы</a>
                         <a href="/diary" class="nav-item nav-link">Дневник</a>
+                        <a href="/welcome" class="nav-item nav-link">О нас</a>
                         <a href="/messages" class="nav-item nav-link text-muted">Сообщения</a>
-                        <a href="/welcome" class="nav-item nav-link text-muted">О нас</a>
                     <#else>
                     </#if>
                     <a href="/index" class="nav-item nav-link text-muted">Index</a>
