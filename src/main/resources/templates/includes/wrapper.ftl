@@ -1,9 +1,11 @@
-<#macro page extra_scripts="" extra_styles="">
+<#import 'header.ftl' as header>
+
+<#macro page extra_scripts="" extra_styles="" cur_page="" caption="FTracker">
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>FTracker</title>
+    <title>${caption}</title>
     <#-- fixme -->
     <link rel="icon" href="/img/favicon.ico">
     <!-- Required meta tags -->
@@ -18,7 +20,7 @@
     ${extra_styles}
 </head>
 <body>
-    <#include 'header.ftl'>
+    <@header.header page=cur_page/>
     <main>
         <#nested>
     </main>

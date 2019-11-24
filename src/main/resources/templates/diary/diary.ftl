@@ -1,12 +1,7 @@
 <#import '../includes/wrapper.ftl' as wrapper>
 <#import 'includes/record.ftl' as component_record>
 
-<@wrapper.page>
-    <#--<section class="jumbotron">
-        <h1>Page: Diary</h1>
-        <p>Attr: ${name}</p>
-        <a href="/diary/record/new">New record</a>
-    </section>-->
+<@wrapper.page cur_page="diary" caption="Дневник занятий | FTracker">
     <div class="text-center jumbotron">
         <div class="container">
             <h1 class="font-weight-bold text-center mb-2">Дневник занятий</h1>

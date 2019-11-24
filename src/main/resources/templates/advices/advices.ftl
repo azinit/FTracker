@@ -5,7 +5,7 @@
     <link rel="stylesheet" href="css/advices.css">
 </#assign>
 
-<@wrapper.page extra_styles=extra_styles>
+<@wrapper.page extra_styles=extra_styles cur_page="advices" caption="Советы | FTracker">
     <section class="jumbotron mb-0">
         <div class="container">
             <div class="content text-center">

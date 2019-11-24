@@ -5,12 +5,12 @@
     <script src="js/profile.js"></script>
 </#assign>
 
-<@wrapper.page extra_scripts=extra_scripts>
+<@wrapper.page extra_scripts=extra_scripts cur_page="profile" caption="Профиль | FTracker">
 
     <div class="container-fluid p-md-5">
         <div class="d-flex flex-row p-5">
             <div class="col-3 text-right">
-                <img src="img/ava.jpg" class="rounded img-fluid" width="250" height="250">
+                <img src="img/person.png" class="rounded img-fluid" width="250" height="250">
             </div>
 
             <p class="align-self-center col-10 display-4">

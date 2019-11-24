@@ -1,7 +1,7 @@
 <#import '../includes/wrapper.ftl' as wrapper>
 <#import 'includes/message.ftl' as component_message>
 
-<@wrapper.page>
+<@wrapper.page cur_page="msg" caption="Hub | FTracker">
     <#--<section class="jumbotron">
         <h1>Page: Messages</h1>
     </section>-->

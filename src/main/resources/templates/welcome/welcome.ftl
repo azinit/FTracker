@@ -8,7 +8,7 @@
 </#assign>
 <@wrapper.page extra_scripts=extra_scripts extra_styles=extra_styles>-->
 
-<@wrapper.page extra_styles=extra_styles>
+<@wrapper.page extra_styles=extra_styles cur_page="about-us" caption="О нас | FTracker">
     <section class="jumbotron mb-0 landing-hero">
         <div class="landing-hero__description">
             <h1>FTracker - твой личный тренер!</h1>

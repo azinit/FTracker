@@ -11,7 +11,7 @@
     <script src="js/home.js"></script>
 </#assign>
 
-<@wrapper.page extra_scripts=extra_scripts>
+<@wrapper.page extra_scripts=extra_scripts cur_page="home" caption="Главная | FTracker">
     <#if user??>
         <#if user.recordActive??>
             <#assign r=user.recordActive/>
