@@ -89,7 +89,12 @@ public class DiaryService {
     }
 
     public boolean alreadyCreated(User user) {
-        Date lastRecordDate = getCurrentState(user).getDate();
+        Record record = getCurrentState(user);
+        if (record == null) {
+            return false;
+        }
+
+        Date lastRecordDate = record.getDate();
         Date current = new Date();
         return DateUtils.isSameDay(lastRecordDate, current);
     }

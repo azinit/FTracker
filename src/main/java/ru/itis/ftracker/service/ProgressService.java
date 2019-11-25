@@ -34,7 +34,7 @@ public class ProgressService {
     }
 
     public Double diffProgValue(Double value, Double totalValue, Workload workload) {
-        Double factor = workload.getFactor();
+        Double factor = (workload == null) ? 0.5 : workload.getFactor();
         Double ratio = value / totalValue;
         Double NO_DEVIATION = 0.0;
         // >>> if ideal - common, really?)
@@ -86,6 +86,16 @@ public class ProgressService {
                 totalRecommendCarbohydrates(actual.getWeight(), prog),
                 workload
         ));
+    }
+
+//    public NutritionProgram defaultProg(User user) {
+//        NutritionProgram prog = user.getProgramActive();
+//        if (prog == null) { prog = defaultProgram(); }
+//        return prog;
+//    }
+
+    public NutritionProgram defaultProgram() {
+        return nutritionProgramRepository.findByName("Похудеть");
     }
     // shortProgress
     // fullProgress

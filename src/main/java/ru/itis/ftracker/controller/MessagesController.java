@@ -13,15 +13,21 @@ import org.springframework.web.multipart.MultipartFile;
 import ru.itis.ftracker.entity.Message;
 import ru.itis.ftracker.entity.User;
 import ru.itis.ftracker.repository.MessageRepository;
+import ru.itis.ftracker.repository.UserRepository;
+import ru.itis.ftracker.service.UserService;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Objects;
 import java.util.UUID;
 
 @Controller
-@RequestMapping("messages")
+@RequestMapping("hub")
 public class MessagesController {
+    @Autowired
+    private UserService userService;
+
     @Autowired
     private MessageRepository messageRepository;
 
@@ -31,7 +37,9 @@ public class MessagesController {
     @GetMapping
     public String messages(Model model) {
         Iterable<Message> messages = messageRepository.findAllByOrderByIdDesc();
+        List<User> users = userService.findAll();
         model.addAttribute("messages", messages);
+        model.addAttribute("users", users);
         return "messages/messages";
     }
 
@@ -60,6 +68,6 @@ public class MessagesController {
         }
 
         messageRepository.save(message);
-        return "redirect:/messages";
+        return "redirect:/hub";
     }
 }

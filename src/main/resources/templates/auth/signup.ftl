@@ -2,9 +2,9 @@
 <#import '../includes/controls.ftl' as controls>
 
 <@wrapper.page>
-    <section class="jumbotron">
-        <h1>Page: SignUp</h1>
-        <p>Add new user</p>
+    <section class="jumbotron text-center">
+        <h1>Регистрация</h1>
+        <p>Создайте себе новый аккаунт</p>
     </section>
 
     <div class="container p-md-5">

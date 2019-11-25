@@ -45,9 +45,9 @@ public class User implements UserDetails {
     @JoinColumn(name = "record_id")
     private Record recordActive;
 
-    private int programDay;
+    private int programDay = 1;
     @Enumerated(EnumType.STRING)
-    private Workload workload;
+    private Workload workload = Workload.MEDIUM;
 
     public Long getId() {
         return id;

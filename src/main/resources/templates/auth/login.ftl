@@ -2,17 +2,17 @@
 <#import '../includes/controls.ftl' as controls>
 
 <@wrapper.page>
-    <section class="jumbotron">
-        <h1>Page: Login</h1>
-        <p>Enter to your account</p>
+    <section class="jumbotron text-center">
+        <h1>Авторизация</h1>
+        <p>Войдите в аккаунт</p>
     </section>
 
     <div class="container p-md-5">
         <#if error??>
-            Invalid username or password.
+            Неверный логин или пароль
         </#if>
         <#if logout??>
-            You have been logged out.
+            Вы вышли
         </#if>
         <form action="/login" method="post">
             <@controls.input label='Логин' name='username'/>

@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import ru.itis.ftracker.entity.Role;
 import ru.itis.ftracker.entity.User;
 import ru.itis.ftracker.repository.UserRepository;
+import ru.itis.ftracker.service.ProgressService;
 import ru.itis.ftracker.service.UserService;
 
 import java.util.Collections;
@@ -17,6 +18,9 @@ import java.util.Collections;
 @Controller
 @RequestMapping("/signup")
 public class SignupController {
+    @Autowired
+    private ProgressService progressService;
+
     @Autowired
     private UserService userService;
 
@@ -34,10 +38,11 @@ public class SignupController {
     ) {
         user.setFirstName(firstName);
         user.setLastName(lastName);
+        user.setProgramActive(progressService.defaultProgram());
 //        user.setProgramActive();
         boolean userAdded = userService.addUser(user);
         if (!userAdded) {
-            model.addAttribute("error", "User exists!");
+            model.addAttribute("error", "Пользователь с таким логином уже существует!");
             return "auth/signup";
         }
         return "redirect:/login";

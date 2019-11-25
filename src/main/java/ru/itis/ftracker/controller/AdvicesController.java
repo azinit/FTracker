@@ -6,8 +6,10 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import ru.itis.ftracker.entity.NutritionProgram;
 import ru.itis.ftracker.entity.User;
 import ru.itis.ftracker.service.AdviceService;
+import ru.itis.ftracker.service.ProgressService;
 
 @Controller
 @RequestMapping("advices")

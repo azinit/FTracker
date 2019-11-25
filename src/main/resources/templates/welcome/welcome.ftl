@@ -62,4 +62,11 @@
         <p>Получай полный доступ ко всем советам по твоей программе питания!</p>
         <img class="demo-img col-8" src="/img/about-us/demo-advices.png" alt="">
     </section>
+    <section class="jumbotron mb-0 text-center">
+        <h1>Попробуйте все возможности сервиса прямо сейчас!</h1>
+        <img class="demo-img col-8" src="/img/about-us/demo-home.png" alt="">
+        <div class="text-center welcome_auth mt-2">
+            <a href="/login" class="btn btn-info auth-btn">Войти</a>
+        </div>
+    </section>
 </@wrapper.page>

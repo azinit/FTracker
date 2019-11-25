@@ -20,7 +20,7 @@
                             <a href="/advices" class="nav-item nav-link <#if page == "advices">active</#if>">Советы</a>
                             <a href="/diary" class="nav-item nav-link <#if page == "diary">active</#if>">Дневник</a>
                             <a href="/welcome" class="nav-item nav-link <#if page == "about-us">active</#if>">О нас</a>
-                            <a href="/messages" class="nav-item nav-link text-muted <#if page == "msg">active</#if>">Сообщения</a>
+                            <a href="/hub" class="nav-item nav-link <#if page == "hub">active</#if>">Hub</a>
                         <#else>
                         </#if>
                         <a href="#" class="nav-item nav-link text-dark">....</a>
