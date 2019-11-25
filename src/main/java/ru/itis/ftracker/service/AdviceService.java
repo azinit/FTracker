@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import ru.itis.ftracker.entity.Advice;
 import ru.itis.ftracker.entity.MotivationalQuote;
+import ru.itis.ftracker.entity.NutritionProgram;
 import ru.itis.ftracker.entity.User;
 import ru.itis.ftracker.repository.AdviceRepository;
 
@@ -28,7 +29,14 @@ public class AdviceService {
         List<Advice> advices = (user == null) ? findAll() : findAll(user);
         if (advices.isEmpty()) {
             String defaultEmptyMsg = "По данной программе питания пока недоступно ни одного совета";
-            return new Advice(user.getProgramActive(), defaultEmptyMsg, "");
+            return new Advice(
+                    new NutritionProgram(
+                            "Неопознанная программа питания", "undefined",
+                            0.0, 0.0, 0.0
+                    ),
+                    defaultEmptyMsg,
+                    ""
+            );
         }
         return advices.get(rand.nextInt(advices.size()));
     }

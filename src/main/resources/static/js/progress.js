@@ -88,10 +88,10 @@ function init_avg(weights = false, pfc = true) {
         fats: average(progress.fats),
         carbohydrates: average(progress.carbohydrates)
     };
-    $(".avg-weight").text((avg.weight) ? avg.weight : defaultNan);
-    $(".avg-proteins").text((avg.proteins) ? avg.proteins : defaultNan);
-    $(".avg-fats").text((avg.fats) ? avg.fats : defaultNan);
-    $(".avg-carbohydrates").text((avg.carbohydrates) ? avg.carbohydrates : defaultNan);
+    $(".avg-weight").text((avg.weight) ? avg.weight.toFixed(2) : defaultNan);
+    $(".avg-proteins").text((avg.proteins) ? avg.proteins.toFixed(2) : defaultNan);
+    $(".avg-fats").text((avg.fats) ? avg.fats.toFixed(2) : defaultNan);
+    $(".avg-carbohydrates").text((avg.carbohydrates) ? avg.carbohydrates.toFixed(2) : defaultNan);
 }
 
 function init_weight() {

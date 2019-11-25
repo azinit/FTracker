@@ -5,10 +5,9 @@
     /*background-position-y: center;*/
     color: #fff;
     min-height: 80vh;
-}
 
-.landing-hero__description {
-    float: left;
+    align-content: center;
+    justify-content: center;
 }
 
 .landing-hero__img {
@@ -26,10 +25,29 @@
     flex-direction: row;
 }
 
-/*.persons-list__item {
-    display: flex;
-}*/
+.persons-list__item {
+    text-align: center;
+    padding: 20px;
+    background-color: rgba(11, 46, 19, 0.07);
+    transition: transform 1s;
+}
+
+.persons-list__item:hover {
+    transform: scale(1.02);
+    transition: transform 1s;
+}
+.persons-list__icon {
+    height: 50px;
+    margin-bottom: 20px;
+}
+
+.persons-list__item + .persons-list__item {
+    margin-left: 20px;
+}
 /*.persons-list__item {*/
 /*    background-color: blue;*/
 /*    flex-direction: column;*/
 /*}*/
+
+.demo-img {
+}

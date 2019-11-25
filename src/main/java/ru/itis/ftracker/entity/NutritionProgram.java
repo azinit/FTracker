@@ -45,6 +45,11 @@ public class NutritionProgram {
     public NutritionProgram() {
     }
 
+    public NutritionProgram(String name, String description) {
+        this.name = name;
+        this.description = description;
+    }
+
     public NutritionProgram(String name, String description, Double recommendProteins, Double recommendFats, Double recommendCarbohydrates) {
         this.name = name;
         this.description = description;

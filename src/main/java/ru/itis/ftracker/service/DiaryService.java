@@ -25,6 +25,8 @@ public class DiaryService {
     private ProgressService progressService;
 
     @Autowired
+    private UserService userService;
+    @Autowired
     private RecordRepository recordRepository;
 
     public boolean add(Record curState) {
@@ -36,6 +38,7 @@ public class DiaryService {
             progressService.extend(curState, prevState);
         } else {
             user.setProgramDay(1);
+            userService.save(user);
         }
         recordRepository.save(curState);
         return true;
